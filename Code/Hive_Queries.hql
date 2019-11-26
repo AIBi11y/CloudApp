@@ -1,5 +1,5 @@
--- Pig output is stored in cleansed_data_assignment2 directory: 
--- STORE final_output INTO '/cleansed_data_assignment2' USING org.apache.pig.piggybank.storage.CSVExcelStorage('|','NO_MULTILINE','NOCHANGE','SKIP_OUTPUT_HEADER');
+-- Pig output is stored in cleansed_data directory: 
+-- STORE final_output INTO '/cleansed_data' USING org.apache.pig.piggybank.storage.CSVExcelStorage('|','NO_MULTILINE','NOCHANGE','SKIP_OUTPUT_HEADER');
 
 -- View existing tables
 SHOW tables;
@@ -45,7 +45,7 @@ CREATE TABLE reduced_listings (id int, neighbourhood_cleansed String, total_pric
 , Latitude String, Longitude String) 
 row format delimited 
 fields terminated by '|' 
-location '/cleansed_data_assignment2';
+location '/cleansed_data';
 
 -- Check out the newly created table
 DESCRIBE reduced_listings;
