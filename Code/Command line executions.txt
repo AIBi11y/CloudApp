@@ -1,0 +1,2 @@
+#TO DOWNLOAD DATA FROM HIVE THROUGH COMMANDLINE EXECUTE BELOW BUT CHANGE SUJITH_GALLA3 TO YOUR DCU/EMAIL USERNAME.
+hive -e 'set hive.cli.print.header=true; select * from reduced_listings' | sed 's/[\t]/,/g'  > /home/sujith_galla3/yourfile.csv
