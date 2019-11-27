@@ -1,2 +1,9 @@
 #TO DOWNLOAD DATA FROM HIVE THROUGH COMMANDLINE EXECUTE BELOW BUT CHANGE SUJITH_GALLA3 TO YOUR DCU/EMAIL USERNAME.
 hive -e 'set hive.cli.print.header=true; select * from reduced_listings' | sed 's/[\t]/,/g'  > /home/sujith_galla3/yourfile.csv
+
+-- OR 
+-- Save the cleansed output to a file on the cluster:
+hive -e "SELECT * FROM reduced_listings" > cleansed_file.csv
+
+-- And move it to the Data directory on the Hadoop File System
+hadoop fs -put cleansed_file.csv /Data
