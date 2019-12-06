@@ -11,4 +11,4 @@ ADD . /app
 RUN pip install -r requirements.txt
 
 # Run classification_sample.py when the container launches
-CMD ["python", "classification_sample.py"]
+CMD ["python", "Model.py"]
