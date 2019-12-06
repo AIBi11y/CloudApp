@@ -1,53 +1,27 @@
-
-# coding: utf-8
-
-# In[50]:
-
-
-# coding: utf-8
-
-# In[1]:
-
-
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
 # For example, here's several helpful packages to load in 
 
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
 # Input data files are available in the "../input/" directory.
 # For example, runninga this (by clicking run or pressing Shift+Enter) will list the files in the input directory
-
-from subprocess import check_output
-#print(check_output(["ls", "../input"]).decode("utf8"))
-
-# Any results you write to the current directory are saved as output.
-
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn import ensemble, tree, linear_model
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import r2_score, mean_squared_error, make_scorer
 from sklearn.utils import shuffle
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
+from sklearn.linear_model import Lasso
 
-get_ipython().run_line_magic('matplotlib', 'inline')
 import warnings
 warnings.filterwarnings('ignore')
 
 
-# In[2]:
-
-
-train = pd.read_csv(r'S:\bkcSSMIM\A_Bic\Bus_Analysts\Sujith Galla\Dcu\CT\cleansed_listings.csv')
+train = pd.read_csv(r'CloudApp\Data\cleansed_listings.csv')
 train = train[train.total_price > 0]
 
-
-# In[5]:
 
 
 dataCols = [
@@ -73,8 +47,6 @@ train['pt_num'] = train['property_type'].cat.codes
 train['rt_num'] = train['room_type'].cat.codes
 
 
-# In[13]:
-
 numerical_features = train[dataCols].columns
 train_num = train[numerical_features]
 train_cat = train[categorical_features]
@@ -86,15 +58,12 @@ train2 = train_num
 
 train['beds'] = train['beds'].fillna(train['beds'].median())
 
-# In[43]:
 
 #split the data to train the model 
 
 X_train,X_test,y_train,y_test = train_test_split(train2,train['total_price'],test_size = 0.2,random_state= 0)
 
 X_train.shape,X_test.shape,y_train.shape,y_test.shape
-
-# In[45]:
 
 
 #defining cross validation
@@ -112,17 +81,15 @@ def rmse_CV_test(model):
     return (rmse)
 
 
-# In[50]:
-from sklearn.linear_model import Lasso
 
-# In[51]:
+
 lasso = Lasso(alpha=0.0001, max_iter=10e5)
 lasso.fit(X_train,y_train)
 train_score=lasso.score(X_train,y_train)
 test_score=lasso.score(X_test,y_test)
 coeff_used = np.sum(lasso.coef_!=0)
 
-comb = pd.read_csv(r'S:\bkcSSMIM\A_Bic\Bus_Analysts\Sujith Galla\Dcu\CT\SQLAExport.txt')
+comb = pd.read_csv(r'S:\CloudApp\Data\SQLAExport.txt')
 dataCols = [
 'nb_num'
 ,'rt_num'
@@ -142,6 +109,6 @@ comb = comb[dataCols]
 comb['predict_val'] = lasso.predict(comb)
 
 #FILE OF PERMUTATIONS AND PREDICTED VALUES.
-file_name = r'S:\bkcSSMIM\A_Bic\Bus_Analysts\Sujith Galla\Dcu\CT\output.csv'
+file_name = r'S:\CloudApp\Data\output.csv'
 comb.to_csv(file_name, sep=',', encoding='utf-8')
 
