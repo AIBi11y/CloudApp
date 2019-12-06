@@ -89,7 +89,7 @@ train_score=lasso.score(X_train,y_train)
 test_score=lasso.score(X_test,y_test)
 coeff_used = np.sum(lasso.coef_!=0)
 
-comb = pd.read_csv(r'S:\CloudApp\Data\SQLAExport.txt')
+comb = pd.read_csv(r'CloudApp\Data\SQLAExport.txt')
 dataCols = [
 'nb_num'
 ,'rt_num'
@@ -109,6 +109,6 @@ comb = comb[dataCols]
 comb['predict_val'] = lasso.predict(comb)
 
 #FILE OF PERMUTATIONS AND PREDICTED VALUES.
-file_name = r'S:\CloudApp\Data\output.csv'
+file_name = r'CloudApp\Data\output.csv'
 comb.to_csv(file_name, sep=',', encoding='utf-8')
 
