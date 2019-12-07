@@ -1,37 +1,14 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/AIBi11y/CloudApp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# CA675-assignment-2
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Welcome to MyBnB!
 
-### Markdown
+Mybnb is the the app that you need to get to grips with Airbnb in your area and find out how much you could make by signing up to host. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Mybnb utilises publicly available Airbnb data. It allows you to view what other properties are like in your neighbourhood, other neighbourhoods and gives the user the opportunity to find out how much money they could make on Airbnb through use of our newly created model.
 
-```markdown
-Syntax highlighted code block
+This visualisation is the output to our Cloud Technologies app construction assignment. All code/data used in the project can be found on GitHub below.
 
-# Header 1
-## Header 2
-### Header 3
+Click below to view the demo to our app, Mybnb
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AIBi11y/CloudApp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+https://youtu.be/5AzJ-NU6pl0
