@@ -1,0 +1,12 @@
+#Create Bucket in Google Cloud Storage
+gsutil du -s gs://ca675_assignment_2/
+
+#Add the newly created CSV file pulled from Hive to your bucket
+gsutil cp cleansed_file.csv gs://ca675_assignment_2/
+
+#This will produce the below output
+Copying file://cleansed_file.csv [Content-Type=text/csv]...
+- [1 files][  4.3 MiB/  4.3 MiB]                                                
+Operation completed over 1 objects/4.3 MiB.    
+
+#File can now be accessed through Google BigQuery
