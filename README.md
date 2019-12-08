@@ -1,5 +1,5 @@
 
-# CA675-assignment-2
+# CA675 Assignment-2
 
 ## Welcome to MyBnB!
 
