@@ -91,7 +91,7 @@ When we finally had our connection, we opted to change visualisation tools from 
 
 # Responsibility statement 
 
-The general roles for the group were outlined in the Midway Report (Appendix A).
+The general roles for the group were outlined in the Midway Report (Appendix).
 
 Below summary illustrates the contribution of each of the team members throughout the project:
 
