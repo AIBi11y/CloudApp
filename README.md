@@ -95,16 +95,19 @@ The general roles for the group were outlined in the Midway Report (Appendix A).
 
 Below summary illustrates the contribution of each of the team members throughout the project:
 
-Sujith: - Satisfactory
+Sujith - Satisfactory
+
 *	Idea Generation with Paul
 *	Prediction Model Build in Python with JJ
 
-Harold: - Satisfactory
+Harold - Satisfactory
+
 *	Midway Report Preparation with Paul & Monica
 *	Data Visualisation in Qlikview
 *	Presentation of the Demo Video
 
-Monica: - Satisfactory
+Monica - Satisfactory
+
 *	Midway Report Preparation with Paul & Harry
 *	Set up Airbnb Account, downloaded data and carried out initial data exploration.
 *	Set up a new project on Google Cloud Console and granted the IAM roles to team members to facilitate group collaboration. Created, configured and started the project cluster.
@@ -115,19 +118,28 @@ Monica: - Satisfactory
 *	Planned to work on the visualisation but that was not possible as Tableau was dropped
 *	Final Report Preparation with Paul & Billy 
 
-JJ: - Satisfactory
+JJ - Satisfactory
+
 *	Prediction Model Build in Python with Sujith
 *	Loaded data into PIG and wrote Pig Latin statements to transform it
 
-Billy: - Satisfactory
+Billy - Satisfactory
+
 *	Initial work on cluster connection to visualization tool
 *	Assisted with preparation of the demo video, by having the steps outlined
 *	Final Report Preparation with Paul & Monica
 
-Paul: - Satisfactory
+Paul - Satisfactory
+
 *	Idea Generation with Sujith
 *	Data Visualisation in Qlikview
 *	Midway Report Preparation with Monica & Harry
 *	Final Report Preparation with Billy & Monica
 
-To read our report in PDF format, click here.
+*To read our report in PDF format, click here.*
+
+# Appendix
+
+Tasks planned as per the midway report
+
+![alt text](https://github.com/AIBi11y/CloudApp/blob/master/images/Midway%20Report%20Tasks.png "Midway Report Tasks")
