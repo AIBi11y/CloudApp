@@ -48,7 +48,7 @@ A detailed listings file was downloaded as the main dataset for this project and
 
 Data extraction, transformation, load and querying were run on GCP, utilizing dataproc - a fast, relatively easy to use and fully managed cloud service for running Hadoop clusters.
 
-## Extract, Transform, Load (ETL) Process
+## Extraction, Transformation, Load (ETL) Process
 
 The ETL work was done using Apache Pig. The raw data downloaded (listings) consisted of 106 columns. This entire dataset was loaded into Pig, a number of columns were cleansed, indicators created, and the transformed Pig output was stored in HDFS directory for further processing (cleansed dataset is available [here](https://github.com/AIBi11y/CloudApp/blob/master/Data/cleansed_listings.csv)). 
 
