@@ -9,13 +9,12 @@ Mybnb utilises publicly available Airbnb data. It allows you to view what other 
 
 This visualisation is the output to our Cloud Technologies app construction assignment. All code/data used in the project can be found on GitHub below.
 
-Click below to view the demo to our app, Mybnb
+Click [here](https://youtu.be/5AzJ-NU6pl0) to view the demo to our app, Mybnb
 
 https://youtu.be/5AzJ-NU6pl0
 
-Click below to read our midway report
+Our midway report can be found [here](https://github.com/AIBi11y/CloudApp/blob/master/Documentation/CA675_A2_MidWay_Report_FINAL.pdf)
 
-https://github.com/AIBi11y/CloudApp/blob/master/Documentation/CA675_A2_MidWay_Report_FINAL.pdf
 
 # Introduction
 
