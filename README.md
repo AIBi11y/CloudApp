@@ -138,7 +138,7 @@ Paul - Satisfactory
 *To read our report in PDF format, click [here](https://github.com/AIBi11y/CloudApp/blob/master/Documentation/CA675_CloudTechnologiesApplication_MyBnB.docx).*
 
 Test 
-<a href="" target="_blank">PDF</a>
+<a href="https://github.com/AIBi11y/CloudApp/blob/master/Documentation/CA675_CloudTechnologiesApplication_MyBnB.docx" target="_blank">PDF</a>
 
 # Appendix
 
