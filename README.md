@@ -135,7 +135,9 @@ Paul - Satisfactory
 *	Midway Report Preparation with Monica & Harry
 *	Final Report Preparation with Billy & Monica
 
+
 To read our report in PDF format, click [here](https://github.com/AIBi11y/CloudApp/blob/master/Documentation/CA675_CloudTechnologiesApplication_MyBnB.pdf)
+
 
 # Appendix
 
