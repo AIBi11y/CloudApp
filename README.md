@@ -41,11 +41,11 @@ This will be done by taking a publicly available dataset from [Inside Airbnb](ht
 
 As per above, the data which we chose to use for our app was Airbnb listings data for Dublin and is publicly available from [Inside Airbnb](http://insideairbnb.com/get-the-data.html). 
 
-A detailed listings file was downloaded as the main dataset for this project and stored on GitHub (file available [here](https://github.com/AIBi11y/CloudApp/blob/master/Data/listings.csv.zip)). The file contains 106 columns related to listings, such as price per night, longitude, latitude, property features, and much more. In the next stage, we needed to wrangle this data for use in our Qlikview dashboard.
+A detailed listings file was downloaded as the main dataset for this project and stored (file available [here](https://github.com/AIBi11y/CloudApp/blob/master/Data/listings.csv.zip)). The file contains 106 columns related to listings, such as price per night, longitude, latitude, property features, and much more. In the next stage, we needed to wrangle this data for use in our Qlikview dashboard.
 
 # Data Processing
 
-## Dataproc
+## GCP/Dataproc
 
 Data extraction, transformation, load and querying were run on GCP, utilizing dataproc - a fast, relatively easy to use and fully managed cloud service for running Hadoop clusters.
 
@@ -53,13 +53,13 @@ Data extraction, transformation, load and querying were run on GCP, utilizing da
 
 The ETL work was done using Apache Pig. The raw data downloaded (listings) consisted of 106 columns. This entire dataset was loaded into Pig, a number of columns were cleansed, indicators created, and the transformed Pig output was stored in HDFS directory for further processing (cleansed dataset is available [here](https://github.com/AIBi11y/CloudApp/blob/master/Data/cleansed_listings.csv)). 
 
-The Pig code that was used in this process is also available on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/data_load_and_cleanse.pig).
+The Pig code that was used in this process is also available [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/data_load_and_cleanse.pig).
 
 ## Hive Querying
 
-The reduced dataset was subsequently picked up in Hive to populate the newly created reduced_listings table. A number of queries were written in HiveQL and the output of these were used within our dashboard. The HiveQL code can be found in on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Hive_Queries.hql).
+The reduced dataset was subsequently picked up in Hive to populate the newly created reduced_listings table. A number of queries were written in HiveQL and the outputs of these were used within our dashboard. The HiveQL code can be found [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Hive_Queries.hql).
 
-The cleansed and reduced output was saved as a file on Hadoop cluster and placed under Data directory on the HDFS. This was done using the following Hive queries found [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Command%20line%20executions.txt). 
+The cleansed and reduced output was saved as a file on Hadoop cluster and placed under Data directory on the HDFS. This was done using the following [commands](https://github.com/AIBi11y/CloudApp/blob/master/Code/Command%20line%20executions.txt). 
 
 ## Model Creation
 
@@ -73,19 +73,19 @@ The model was run using a Docker instance on Google Cloud Platform (see Docker c
 
 # Connecting Data to Visualisation
 
-In order to visualise our data, we initially used BigQuery to create a connection. A bucket in Google Cloud Storage was created within the cluster and the previously cleansed CSV file was then stored into the Bucket. Code for this is available on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Create%20GoogleCloudStorage_Bucket).
+In order to visualise our data, we initially used BigQuery to create a connection. A bucket in Google Cloud Storage was created within the cluster and the previously cleansed CSV file was then stored into the Bucket. Code for this is available [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Create%20GoogleCloudStorage_Bucket).
 
 Google BigQuery then connected to the Bucket to access the file and create a new table in BIgQuery using the data from our CSV file. These new files were envisaged to be connected directly to Tableau.
 
 However, after testing the functionality of Tableau, we made the decision to use Qlikview instead. We decided to do this as Qlikview was better for loading such large datasets. Equally we had prior experience using this visualisation tool.
 
-Qlikview was not compatible with BigQuery. Therefore in order to load the data into Qlikview, we downloaded our datasets from the cluster and uploaded directly into Qlikview. Our Qlikview dashboard code can be viewed on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Mybnb.qvw).
+Qlikview was not compatible with BigQuery. Therefore in order to load the data into Qlikview, we downloaded our datasets from the cluster and uploaded directly into Qlikview. Our Qlikview dashboard code can be viewed [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Mybnb.qvw).
 
 # Challenges and Lessons Learned
 
 Overall we’re pleased with the output to the project.
 
-However we did encounter challenges that we would approach differently for future work. We spent a lot of time trying to connect our cluster directly to our visualisation tool.  We finally successfully connected to Tableau via BigQuery after much difficulty.
+However we did encounter challenges that we would approach differently for future work. We spent a lot of time trying to connect our cluster directly to our visualisation tool. After much difficulty, we successfully connected to Tableau via BigQuery.
 
 When we finally had our connection, we opted to change visualisation tools from Tableau to Qlikview for ‘fit’ reasons. For future projects, it’s advisable to fit your problem/dataset to the visualisation tool first as this will influence the connection type between your cluster and visualisation tool.
 
