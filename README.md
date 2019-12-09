@@ -39,9 +39,9 @@ This will be done by taking a publicly available dataset from [Inside Airbnb](ht
 
 # Data Source
 
-As per above, the data which we chose to use for our app was Airbnb listings data for Dublin and is publicly available from Inside Airbnb. 
+As per above, the data which we chose to use for our app was Airbnb listings data for Dublin and is publicly available from [Inside Airbnb](http://insideairbnb.com/get-the-data.html). 
 
-A detailed listings file was downloaded as the main dataset for this project and stored on GitHub (file available here). The file contains 106 columns related to listings, such as price per night, longitude, latitude, property features, and much more. In the next stage, we needed to wrangle this data for use in our Qlikview dashboard.
+A detailed listings file was downloaded as the main dataset for this project and stored on GitHub (file available [here](https://github.com/AIBi11y/CloudApp/blob/master/Data/listings.csv.zip)). The file contains 106 columns related to listings, such as price per night, longitude, latitude, property features, and much more. In the next stage, we needed to wrangle this data for use in our Qlikview dashboard.
 
 # Data Processing
 
@@ -51,15 +51,15 @@ Data extraction, transformation, load and querying were run on GCP, utilizing da
 
 ## Extract, Transform, Load (ETL) Process
 
-The ETL work was done using Apache Pig. The raw data downloaded (listings) consisted of 106 columns. This entire dataset was loaded into Pig, a number of columns were cleansed, indicators created, and the transformed Pig output was stored in HDFS directory for further processing (cleansed dataset is available here). 
+The ETL work was done using Apache Pig. The raw data downloaded (listings) consisted of 106 columns. This entire dataset was loaded into Pig, a number of columns were cleansed, indicators created, and the transformed Pig output was stored in HDFS directory for further processing (cleansed dataset is available [here](https://github.com/AIBi11y/CloudApp/blob/master/Data/cleansed_listings.csv)). 
 
-The Pig code that was used in this process is also available on GitHub here.
+The Pig code that was used in this process is also available on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/data_load_and_cleanse.pig).
 
 ## Hive Querying
 
-The reduced dataset was subsequently picked up in Hive to populate the newly created reduced_listings table. A number of queries were written in HiveQL and the output of these were used within our dashboard. The HiveQL code can be found in on GitHub here.
+The reduced dataset was subsequently picked up in Hive to populate the newly created reduced_listings table. A number of queries were written in HiveQL and the output of these were used within our dashboard. The HiveQL code can be found in on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Hive_Queries.hql).
 
-The cleansed and reduced output was saved as a file on Hadoop cluster and placed under Data directory on the HDFS. This was done using the following Hive queries found here. 
+The cleansed and reduced output was saved as a file on Hadoop cluster and placed under Data directory on the HDFS. This was done using the following Hive queries found [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Command%20line%20executions.txt). 
 
 ## Model Creation
 
@@ -69,17 +69,17 @@ There were more data points available per listing such as host type, reviews, ra
 
 In the end the lasso regression technique was used to model the prediction function as it produced the best RMSE results. After the model was created, using SQL and cross joins, every possible combination of user input required for any listing was created and respective prices predicted. This data was then stored as a file to be uploaded to Qlikview.
 
-The model was run using a Docker instance on Google Cloud Platform (see Docker code here). The project Git was pulled into the container. We then used python code and cleansed data files used to build the image. The output of the model was saved to the repo and it was then pushed back the Git. Pricing model code used can be found on GitHub here.
+The model was run using a Docker instance on Google Cloud Platform (see Docker code [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Dockerfile)). The project Git was pulled into the container. We then used python code and cleansed data files used to build the image. The output of the model was saved to the repo and it was then pushed back the Git. Pricing model code used can be found on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Model.py).
 
 # Connecting Data to Visualisation
 
-In order to visualise our data, we initially used BigQuery to create a connection. A bucket in Google Cloud Storage was created within the cluster and the previously cleansed CSV file was then stored into the Bucket. Code for this is available on GitHub here.
+In order to visualise our data, we initially used BigQuery to create a connection. A bucket in Google Cloud Storage was created within the cluster and the previously cleansed CSV file was then stored into the Bucket. Code for this is available on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Create%20GoogleCloudStorage_Bucket).
 
 Google BigQuery then connected to the Bucket to access the file and create a new table in BIgQuery using the data from our CSV file. These new files were envisaged to be connected directly to Tableau.
 
 However, after testing the functionality of Tableau, we made the decision to use Qlikview instead. We decided to do this as Qlikview was better for loading such large datasets. Equally we had prior experience using this visualisation tool.
 
-Qlikview was not compatible with BigQuery. Therefore in order to load the data into Qlikview, we downloaded our datasets from the cluster and uploaded directly into Qlikview. Our Qlikview dashboard code can be viewed on GitHub here.
+Qlikview was not compatible with BigQuery. Therefore in order to load the data into Qlikview, we downloaded our datasets from the cluster and uploaded directly into Qlikview. Our Qlikview dashboard code can be viewed on GitHub [here](https://github.com/AIBi11y/CloudApp/blob/master/Code/Mybnb.qvw).
 
 # Challenges and Lessons Learned
 
@@ -108,7 +108,7 @@ Monica: - Satisfactory
 *	Midway Report Preparation with Paul & Harry
 *	Set up Airbnb Account, downloaded data and carried out initial data exploration.
 *	Set up a new project on Google Cloud Console and granted the IAM roles to team members to facilitate group collaboration. Created, configured and started the project cluster.
-*	Set up a shared CloudApp repository on GitHub, along with a project and a basic Kanban style board (an aid to work through the tasks outlined in the Midway Report)
+*	Set up a shared CloudApp repository on [GitHub](https://github.com/AIBi11y/CloudApp), along with a project and a basic Kanban style board (an aid to work through the tasks outlined in the Midway Report)
 *	Loaded data into PIG, transformed it and stored the output in HDFS.
 *	Wrote HiveQL code to create a table and populate it with the reduced dataset.
 *	Wrote a number of HiveQL queries to produce figures for the UI.
