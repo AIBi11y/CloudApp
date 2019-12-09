@@ -140,6 +140,8 @@ Paul - Satisfactory
 Test 
 <a href="https://github.com/AIBi11y/CloudApp/blob/master/Documentation/CA675_CloudTechnologiesApplication_MyBnB.docx" target="_blank">PDF</a>
 
+[download this](/Documentation/CA675_CloudTechnologiesApplication_MyBnB.docx)
+
 # Appendix
 
 Tasks planned as per the midway report
